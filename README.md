@@ -1,8 +1,8 @@
 # C.U.E. Alexander von Humboldt - Automatización de Planeadores y Notas (Frontend)
 
-[cite_start]Este repositorio contiene el código fuente de la interfaz web para el sistema de automatización de verificación, validación y almacenamiento de planeadores académicos y notas de la institución. 
+Este repositorio contiene el código fuente de la interfaz web para el sistema de automatización de verificación, validación y almacenamiento de planeadores académicos y notas de la institución. 
 
-[cite_start]La aplicación permite al responsable del programa revisar la bandeja de documentos identificados, visualizar las validaciones semánticas asistidas por Inteligencia Artificial y gestionar el almacenamiento organizado.
+La aplicación permite al responsable del programa revisar la bandeja de documentos identificados, visualizar las validaciones semánticas asistidas por Inteligencia Artificial y gestionar el almacenamiento organizado.
 
 ---
 
@@ -29,5 +29,5 @@ Sigue estos pasos para clonar y ejecutar el entorno de desarrollo:
 
 ### 1. Clonar el repositorio
 ```bash
-git clone [https://github.com/TU_USUARIO/cue-automation-frontend.git](https://github.com/TU_USUARIO/cue-automation-frontend.git)
+git clone [https://github.com/JuanGallego1107/cue-automation-backend.git](https://github.com/JuanGallego1107/cue-automation-backend.git)
 cd cue-automation-frontend
