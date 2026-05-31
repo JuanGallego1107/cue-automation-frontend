@@ -189,9 +189,11 @@ async function handleLogin() {
   align-items: center;
 }
 
-.input-wrapper svg:first-child {
+.input-wrapper > svg {
   position: absolute;
   left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
   width: 18px;
   height: 18px;
   color: rgba(255, 255, 255, 0.3);
@@ -203,7 +205,7 @@ async function handleLogin() {
   background: rgba(255, 255, 255, 0.07);
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 12px;
-  padding: 0.875rem 1rem 0.875rem 2.75rem;
+  padding: 0.875rem 2.75rem 0.875rem 2.75rem;
   color: #ffffff;
   font-size: 0.95rem;
   transition: all 0.2s ease;
@@ -228,6 +230,8 @@ async function handleLogin() {
 .toggle-password {
   position: absolute;
   right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
   background: none;
   border: none;
   cursor: pointer;
@@ -236,6 +240,7 @@ async function handleLogin() {
   display: flex;
   align-items: center;
   transition: color 0.2s;
+  z-index: 2;
 }
 
 .toggle-password:hover { color: rgba(255, 255, 255, 0.7); }

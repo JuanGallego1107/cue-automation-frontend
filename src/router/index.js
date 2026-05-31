@@ -11,6 +11,11 @@ const DashboardView = () => import('@/views/DashboardView.vue')
 const UsersView   = () => import('@/views/admin/UsersView.vue')
 const RolesView   = () => import('@/views/admin/RolesView.vue')
 
+// ── Submissions (Revisiones de documentos) ────────────────────────────────
+const SubmissionsListView = () => import('@/views/submissions/SubmissionsListView.vue')
+const SubmissionUploadView = () => import('@/views/submissions/SubmissionUploadView.vue')
+const SubmissionDetailView = () => import('@/views/submissions/SubmissionDetailView.vue')
+
 // ── Error ──────────────────────────────────────────────────────────────────
 const NotFoundView    = () => import('@/views/NotFoundView.vue')
 const ForbiddenView   = () => import('@/views/ForbiddenView.vue')
@@ -32,6 +37,26 @@ const routes = [
     name: 'Dashboard',
     component: DashboardView,
     meta: { requiresAuth: true },
+  },
+
+  // ── Submissions ───────────────────────────────────────────────────────────
+  {
+    path: '/submissions',
+    name: 'submissions.list',
+    component: SubmissionsListView,
+    meta: { requiresAuth: true, roles: ['admin', 'coordinator'] },
+  },
+  {
+    path: '/submissions/upload',
+    name: 'submissions.upload',
+    component: SubmissionUploadView,
+    meta: { requiresAuth: true, roles: ['coordinator'] },
+  },
+  {
+    path: '/submissions/:uuid',
+    name: 'submissions.detail',
+    component: SubmissionDetailView,
+    meta: { requiresAuth: true, roles: ['admin', 'coordinator'] },
   },
 
   // ── Admin ─────────────────────────────────────────────────────────────────
@@ -75,6 +100,15 @@ router.beforeEach((to, _from, next) => {
   // 3. Ruta requiere un permiso específico
   if (to.meta.requiresPermission && !auth.hasPermission(to.meta.requiresPermission)) {
     return next({ name: 'Forbidden' })
+  }
+
+  // 4. Ruta requiere roles específicos
+  if (to.meta.roles) {
+    const roleName = auth.user?.role?.name
+    const normalizedRole = roleName === 'Administrador' ? 'admin' : (roleName === 'Coordinador' ? 'coordinator' : null)
+    if (!normalizedRole || !to.meta.roles.includes(normalizedRole)) {
+      return next({ name: 'Forbidden' })
+    }
   }
 
   next()

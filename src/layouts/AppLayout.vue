@@ -32,6 +32,27 @@
           <span>Dashboard</span>
         </RouterLink>
 
+        <!-- Revisiones (Coordinador y Administrador) -->
+        <RouterLink
+          v-if="canSeeSubmissions"
+          to="/submissions"
+          class="nav-item"
+          active-class="active"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/>
+            <polyline points="10 9 9 9 8 9"/>
+          </svg>
+          <span>Revisiones</span>
+          <!-- Badge de pendientes de aprobación -->
+          <span v-if="pendingApprovalCount > 0" class="nav-badge">
+            {{ pendingApprovalCount }}
+          </span>
+        </RouterLink>
+
         <!-- Administración — solo si tiene algún permiso de admin -->
         <template v-if="canSeeAdmin">
           <div class="nav-section-label">Administración</div>
@@ -92,12 +113,14 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useAuthStore } from '@/stores/authStore'
+import { useSubmissionStore } from '@/stores/submissionStore'
 
 const router = useRouter()
 const auth = useAuthStore()
+const submissionStore = useSubmissionStore()
 const sidebarCollapsed = ref(false)
 
 const userInitials = computed(() => {
@@ -109,10 +132,27 @@ const canSeeAdmin = computed(() => {
   return auth.hasPermission('users.view') || auth.hasPermission('roles.manage')
 })
 
+const canSeeSubmissions = computed(() => {
+  const roleName = auth.user?.role?.name
+  return roleName === 'Administrador' || roleName === 'Coordinador'
+})
+
+const pendingApprovalCount = computed(() => {
+  if (auth.user?.role?.name !== 'Coordinador') return 0
+  return submissionStore.submissionsByStatus('pending_approval').length
+})
+
 async function handleLogout() {
   await auth.logout()
   router.push('/login')
 }
+
+// Carga inicial para el badge del sidebar
+onMounted(() => {
+  if (auth.user?.role?.name === 'Coordinador') {
+    submissionStore.fetchSubmissions()
+  }
+})
 </script>
 
 <style scoped>
@@ -141,11 +181,33 @@ async function handleLogout() {
   width: 68px;
 }
 
-.sidebar.collapsed .brand-name,
+.sidebar.collapsed .brand,
 .sidebar.collapsed .nav-item span,
 .sidebar.collapsed .user-details,
-.sidebar.collapsed .nav-section-label {
+.sidebar.collapsed .nav-section-label,
+.sidebar.collapsed .nav-badge {
   display: none;
+}
+
+.sidebar.collapsed .sidebar-header {
+  justify-content: center;
+}
+
+.sidebar.collapsed .nav-item {
+  justify-content: center;
+  padding: 0.6rem 0;
+}
+
+.sidebar.collapsed .sidebar-footer {
+  flex-direction: column;
+  gap: 0.75rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.sidebar.collapsed .user-info {
+  justify-content: center;
+  flex: none;
 }
 
 /* Header */
@@ -253,6 +315,17 @@ async function handleLogout() {
   background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(118, 75, 162, 0.2));
   color: #a78bfa;
   border: 1px solid rgba(102, 126, 234, 0.25);
+}
+
+.nav-badge {
+  background: #f59e0b;
+  color: #12102a;
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 0.15rem 0.45rem;
+  border-radius: 10px;
+  margin-left: auto;
+  line-height: 1;
 }
 
 /* Footer */
