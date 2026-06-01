@@ -65,70 +65,50 @@
         <!-- Encabezado de Detalle -->
         <div class="detail-header">
           <div class="header-main">
-            <h1 :title="store.currentSubmission.original_filename">
-              {{ store.currentSubmission.original_filename }}
-            </h1>
-            <SubmissionStatusBadge :status="store.currentSubmission.status" size="md" />
+            <div class="header-title-group">
+              <h1 :title="store.currentSubmission.original_filename">
+                {{ store.currentSubmission.original_filename }}
+              </h1>
+              <SubmissionStatusBadge :status="store.currentSubmission.status" size="md" />
+            </div>
+
+            <!-- Acciones en el header, siempre visibles -->
+            <div v-if="canShowActions" class="header-actions">
+              <!-- Cancelar -->
+              <button
+                v-if="canCancel"
+                class="btn-danger"
+                @click="handleCancel"
+                id="btn-cancel-submission"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon">
+                  <polyline points="3 6 5 6 21 6" />
+                  <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2" />
+                </svg>
+                Cancelar revisión
+              </button>
+
+              <!-- Confirmar y subir a Drive -->
+              <button
+                v-if="canConfirm"
+                class="btn-success"
+                @click="showConfirmModal = true"
+                id="btn-confirm-drive"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                  <polyline points="22 4 12 14.01 9 11.01" />
+                </svg>
+                Confirmar y subir a Drive
+              </button>
+            </div>
           </div>
         </div>
 
-        <!-- Columnas: Panel Detalles (Izquierda) + Panel Resultados IA (Derecha) -->
-        <div class="detail-grid">
-          <!-- Columna Izquierda -->
-          <div class="grid-column">
-            <SubmissionDetailPanel :submission="store.currentSubmission" />
-          </div>
-          <!-- Columna Derecha -->
-          <div class="grid-column">
-            <ValidationResultPanel :submission="store.currentSubmission" />
-          </div>
-        </div>
-
-        <!-- Acciones Inferiores (Sticky en móviles) -->
-        <div class="actions-sticky-bar" v-if="canShowActions">
-          <div class="actions-container">
-            <!-- Cancelar (Solo Coordinador dueño del envío y si está PENDING) -->
-            <button
-              v-if="canCancel"
-              class="btn-danger"
-              @click="handleCancel"
-              id="btn-cancel-submission"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                class="btn-icon"
-              >
-                <polyline points="3 6 5 6 21 6" />
-                <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2" />
-              </svg>
-              Cancelar revisión
-            </button>
-
-            <!-- Confirmar y subir a Drive (Solo Coordinador dueño y si está PENDING_APPROVAL) -->
-            <button
-              v-if="canConfirm"
-              class="btn-success"
-              @click="showConfirmModal = true"
-              id="btn-confirm-drive"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                class="btn-icon"
-              >
-                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                <polyline points="22 4 12 14.01 9 11.01" />
-              </svg>
-              Confirmar y subir a Drive
-            </button>
-          </div>
+        <!-- Paneles apilados: Detalles arriba, Resultados IA abajo -->
+        <div class="detail-stack">
+          <SubmissionDetailPanel :submission="store.currentSubmission" />
+          <ValidationResultPanel :submission="store.currentSubmission" />
         </div>
       </div>
 
@@ -393,66 +373,50 @@ onUnmounted(() => {
 
 /* Encabezado */
 .detail-header {
-  margin-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .header-main {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   flex-wrap: wrap;
-  gap: 1.25rem;
+  gap: 1rem;
 }
 
-.header-main h1 {
-  font-size: 1.75rem;
+.header-title-group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  min-width: 0;
+  flex: 1;
+}
+
+.header-title-group h1 {
+  font-size: 1.5rem;
   font-weight: 800;
   color: white;
   margin: 0;
-  word-break: break-all;
-  max-width: 75%;
-}
-
-/* Grid Dos Columnas */
-.detail-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
-  align-items: start;
-}
-
-@media (max-width: 900px) {
-  .detail-grid {
-    grid-template-columns: 1fr;
-  }
-  .header-main h1 {
-    max-width: 100%;
-  }
-}
-
-.grid-column {
+  word-break: break-word;
   min-width: 0;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+/* Stack de paneles: una columna, apilados verticalmente */
+.detail-stack {
   display: flex;
   flex-direction: column;
+  gap: 1.5rem;
 }
 
-/* Sticky Action Bar */
-.actions-sticky-bar {
-  position: sticky;
-  bottom: 0;
-  background: #0d0b1e;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-  padding: 1rem 0;
-  margin-top: 2rem;
-  z-index: 100;
-}
 
-.actions-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: flex-end;
-  gap: 1rem;
-}
 
 /* Botones de acción */
 .btn-icon {
