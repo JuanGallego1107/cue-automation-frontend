@@ -158,8 +158,8 @@ function clearAllFilters() {
 
 <style scoped>
 .filters-container {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
   border-radius: 16px;
   padding: 1.25rem 1.5rem;
   margin-bottom: 1.5rem;
@@ -182,7 +182,7 @@ function clearAllFilters() {
 
 .filter-group label {
   font-size: 0.775rem;
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--c-text-muted);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -190,11 +190,11 @@ function clearAllFilters() {
 
 .filter-group select,
 .filter-group input[type="date"] {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #f8fafc;
+  border: 1px solid var(--c-border);
   border-radius: 10px;
   padding: 0.6rem 0.8rem;
-  color: white;
+  color: var(--c-text);
   font-size: 0.85rem;
   outline: none;
   transition: all 0.2s;
@@ -204,20 +204,20 @@ function clearAllFilters() {
 
 .filter-group select:focus,
 .filter-group input[type="date"]:focus {
-  border-color: #667eea;
-  background: rgba(255, 255, 255, 0.09);
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.15);
+  border-color: var(--c-primary);
+  background: #ffffff;
+  box-shadow: 0 0 0 3px var(--c-primary-pale);
 }
 
 .filter-group select option {
-  background: #151230;
-  color: white;
+  background: #ffffff;
+  color: var(--c-text);
 }
 
 .clear-filters-wrapper {
   display: flex;
   justify-content: flex-end;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: 1px solid var(--c-border);
   padding-top: 0.75rem;
 }
 
@@ -225,9 +225,9 @@ function clearAllFilters() {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  background: rgba(248, 113, 113, 0.1);
-  border: 1px solid rgba(248, 113, 113, 0.2);
-  color: #f87171;
+  background: var(--c-danger-pale);
+  border: 1px solid rgba(207, 99, 107, 0.2);
+  color: var(--c-danger);
   padding: 0.45rem 1rem;
   border-radius: 8px;
   font-size: 0.8rem;
@@ -237,8 +237,8 @@ function clearAllFilters() {
 }
 
 .btn-clear:hover {
-  background: rgba(248, 113, 113, 0.18);
-  border-color: rgba(248, 113, 113, 0.35);
+  background: rgba(207, 99, 107, 0.18);
+  border-color: rgba(207, 99, 107, 0.35);
   transform: translateY(-1px);
 }
 

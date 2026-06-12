@@ -248,13 +248,13 @@ const scorePercent = computed(() => {
 
 const scoreColor = computed(() => {
   const s = scorePercent.value
-  if (s >= 90) return '#10b981' // emerald-500
-  if (s >= 70) return '#f59e0b' // amber-500
-  return '#f43f5e' // rose-500
+  if (s >= 90) return '#3A6200'
+  if (s >= 70) return '#7A4200'
+  return '#CF636B'
 })
 
-const outcomeColor = computed(() => (passed.value ? '#10b981' : '#f43f5e'))
-const outcomeBg = computed(() => (passed.value ? 'rgba(16, 185, 129, 0.12)' : 'rgba(244, 63, 94, 0.12)'))
+const outcomeColor = computed(() => (passed.value ? '#3A6200' : '#CF636B'))
+const outcomeBg = computed(() => (passed.value ? 'rgba(213, 237, 171, 0.4)' : 'rgba(207, 99, 107, 0.1)'))
 
 const analysisSummary = computed(() => {
   return aiAnalysis.value.summary || 'Resumen de validación no estructurado por el servidor.'
@@ -317,24 +317,24 @@ const groupedIssues = computed(() => {
   justify-content: center;
   text-align: center;
   padding: 4rem 2rem;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
   border-radius: 16px;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--c-text-muted);
   min-height: 380px;
 }
 
 .empty-icon {
   width: 48px;
   height: 48px;
-  color: rgba(255, 255, 255, 0.2);
+  color: var(--c-text-faint);
   margin-bottom: 1.25rem;
 }
 
 .empty-or-loading h4 {
   font-size: 1.1rem;
   font-weight: 700;
-  color: white;
+  color: var(--c-text);
   margin-bottom: 0.5rem;
 }
 
@@ -357,21 +357,21 @@ const groupedIssues = computed(() => {
   width: 64px;
   height: 64px;
   border-radius: 50%;
-  border: 3px solid rgba(102, 126, 234, 0.2);
-  border-top-color: #667eea;
+  border: 3px solid var(--c-primary-mid);
+  border-top-color: var(--c-primary);
   animation: spin 1s linear infinite;
   margin-bottom: 1.5rem;
 }
 
 .loading-title {
-  color: white;
+  color: var(--c-text);
   font-size: 1.1rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
 }
 
 .loading-desc {
-  color: rgba(255, 255, 255, 0.4) !important;
+  color: var(--c-text-muted) !important;
   font-size: 0.85rem;
   max-width: 380px !important;
   margin-bottom: 2rem !important;
@@ -388,7 +388,7 @@ const groupedIssues = computed(() => {
 
 .skeleton-bar {
   height: 10px;
-  background: rgba(255, 255, 255, 0.05);
+  background: #e2e8f0;
   border-radius: 5px;
   animation: pulse 1.5s ease-in-out infinite;
 }
@@ -419,8 +419,8 @@ const groupedIssues = computed(() => {
 
 /* Header Card (Circular chart + Summary) */
 .result-header-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
   border-radius: 16px;
   padding: 1.5rem;
   display: flex;
@@ -451,7 +451,7 @@ const groupedIssues = computed(() => {
 
 .circle-bg {
   fill: none;
-  stroke: rgba(255, 255, 255, 0.04);
+  stroke: var(--c-border);
   stroke-width: 3;
 }
 
@@ -475,7 +475,7 @@ const groupedIssues = computed(() => {
   font-size: 0.725rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--c-text-muted);
   font-weight: 600;
 }
 
@@ -501,7 +501,7 @@ const groupedIssues = computed(() => {
   border-radius: 20px;
   font-size: 0.825rem;
   font-weight: 700;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--c-border);
 }
 
 .outcome-icon {
@@ -512,14 +512,14 @@ const groupedIssues = computed(() => {
 .summary-text {
   font-size: 0.875rem;
   line-height: 1.5;
-  color: rgba(255, 255, 255, 0.75);
+  color: var(--c-text-muted);
   margin: 0;
 }
 
 /* Sections */
 .result-section {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
   border-radius: 16px;
   padding: 1.25rem 1.5rem;
 }
@@ -527,7 +527,7 @@ const groupedIssues = computed(() => {
 .section-title {
   font-size: 0.95rem;
   font-weight: 700;
-  color: white;
+  color: var(--c-text);
   margin-bottom: 1rem;
 }
 
@@ -550,23 +550,23 @@ const groupedIssues = computed(() => {
 }
 
 .check-item.passed {
-  background: rgba(16, 185, 129, 0.03);
-  border-color: rgba(16, 185, 129, 0.15);
-  color: rgba(255, 255, 255, 0.85);
+  background: rgba(213, 237, 171, 0.2);
+  border-color: rgba(58, 98, 0, 0.15);
+  color: var(--c-text);
 }
 
 .check-item.passed .check-icon {
-  color: #10b981;
+  color: var(--c-success-text);
 }
 
 .check-item.failed {
-  background: rgba(244, 63, 94, 0.03);
-  border-color: rgba(244, 63, 94, 0.15);
-  color: rgba(255, 255, 255, 0.85);
+  background: var(--c-danger-pale);
+  border-color: rgba(207, 99, 107, 0.2);
+  color: var(--c-text);
 }
 
 .check-item.failed .check-icon {
-  color: #f43f5e;
+  color: var(--c-danger);
 }
 
 .check-icon {
@@ -593,18 +593,18 @@ const groupedIssues = computed(() => {
 }
 
 .severity-group.critico {
-  background: rgba(244, 63, 94, 0.02);
-  border-color: rgba(244, 63, 94, 0.15);
+  background: var(--c-danger-pale);
+  border-color: rgba(207, 99, 107, 0.2);
 }
 
 .severity-group.advertencia {
-  background: rgba(245, 158, 11, 0.01);
-  border-color: rgba(245, 158, 11, 0.15);
+  background: rgba(255, 204, 158, 0.15);
+  border-color: rgba(122, 66, 0, 0.15);
 }
 
 .severity-group.informativo {
-  background: rgba(59, 130, 246, 0.01);
-  border-color: rgba(59, 130, 246, 0.15);
+  background: var(--c-primary-pale);
+  border-color: var(--c-primary-mid);
 }
 
 .severity-header {
@@ -622,13 +622,13 @@ const groupedIssues = computed(() => {
   border-radius: 6px;
 }
 
-.severity-badge.critico { background: #f43f5e; color: white; }
-.severity-badge.advertencia { background: #f59e0b; color: #1e1b3a; }
-.severity-badge.informativo { background: #3b82f6; color: white; }
+.severity-badge.critico     { background: var(--c-danger);        color: white; }
+.severity-badge.advertencia { background: var(--c-warning);        color: var(--c-warning-text); }
+.severity-badge.informativo { background: var(--c-primary);        color: white; }
 
 .count-text {
   font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.35);
+  color: var(--c-text-muted);
   font-weight: 600;
 }
 
@@ -639,8 +639,8 @@ const groupedIssues = computed(() => {
 }
 
 .issue-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
   border-radius: 8px;
   padding: 0.75rem 1rem;
   display: flex;
@@ -651,44 +651,44 @@ const groupedIssues = computed(() => {
 .field-tag {
   font-size: 0.75rem;
   font-weight: 600;
-  color: #a78bfa;
+  color: var(--c-primary);
 }
 
 .issue-desc {
   font-size: 0.825rem;
   line-height: 1.4;
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--c-text);
   margin: 0;
 }
 
 .issue-rec {
   font-size: 0.8rem;
   line-height: 1.4;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--c-text-muted);
   margin: 0;
-  border-top: 1px dashed rgba(255, 255, 255, 0.05);
+  border-top: 1px dashed var(--c-border);
   padding-top: 0.4rem;
   margin-top: 0.2rem;
 }
 
 .issue-rec strong {
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--c-text);
 }
 
 /* Recommendations Section */
 .recommendations-section {
-  border-color: rgba(167, 139, 250, 0.25);
-  background: rgba(167, 139, 250, 0.03);
+  border-color: var(--c-primary-mid);
+  background: var(--c-primary-pale);
 }
 
 .text-purple {
-  color: #a78bfa !important;
+  color: var(--c-primary) !important;
 }
 
 .recommendations-text {
   font-size: 0.85rem;
   line-height: 1.5;
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--c-text);
   margin: 0;
   white-space: pre-wrap;
 }

@@ -252,8 +252,8 @@ const formattedReviewedAt = computed(() => formatDate(props.submission.reviewed_
 }
 
 .panel-section {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
   border-radius: 16px;
   padding: 1.25rem 1.5rem;
 }
@@ -264,16 +264,16 @@ const formattedReviewedAt = computed(() => formatDate(props.submission.reviewed_
   gap: 0.6rem;
   font-size: 0.95rem;
   font-weight: 700;
-  color: white;
+  color: var(--c-text);
   margin-bottom: 1rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid var(--c-border);
   padding-bottom: 0.6rem;
 }
 
 .section-icon {
   width: 16px;
   height: 16px;
-  color: #a78bfa;
+  color: var(--c-primary);
 }
 
 .grid-details {
@@ -293,13 +293,13 @@ const formattedReviewedAt = computed(() => formatDate(props.submission.reviewed_
   font-size: 0.725rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  color: rgba(255, 255, 255, 0.35);
+  color: var(--c-text-muted);
   font-weight: 600;
 }
 
 .val {
   font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--c-text);
   font-weight: 500;
 }
 
@@ -317,11 +317,11 @@ const formattedReviewedAt = computed(() => formatDate(props.submission.reviewed_
 .code-font {
   font-family: monospace;
   font-size: 0.775rem;
-  color: rgba(167, 139, 250, 0.8);
+  color: var(--c-primary);
 }
 
 .text-dim {
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--c-text-muted);
 }
 
 .font-sm {
@@ -330,37 +330,37 @@ const formattedReviewedAt = computed(() => formatDate(props.submission.reviewed_
 
 /* Notes section styling */
 .notes-section {
-  border-color: rgba(245, 158, 11, 0.2);
-  background: rgba(245, 158, 11, 0.02);
+  border-color: rgba(255, 204, 158, 0.4);
+  background: rgba(255, 204, 158, 0.08);
 }
 
 .text-warning {
-  color: #f59e0b !important;
+  color: var(--c-warning-text) !important;
 }
 
 .text-warning .section-icon {
-  color: #f59e0b;
+  color: var(--c-warning-text);
 }
 
 .notes-content {
   font-size: 0.85rem;
   line-height: 1.5;
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--c-text);
   white-space: pre-wrap;
 }
 
 /* Drive section styling */
 .drive-section {
-  border-color: rgba(16, 185, 129, 0.25);
-  background: rgba(16, 185, 129, 0.02);
+  border-color: rgba(58, 98, 0, 0.2);
+  background: rgba(213, 237, 171, 0.12);
 }
 
 .text-success {
-  color: #10b981 !important;
+  color: var(--c-success-text) !important;
 }
 
 .text-success .section-icon {
-  color: #10b981;
+  color: var(--c-success-text);
 }
 
 .drive-content {
@@ -372,8 +372,8 @@ const formattedReviewedAt = computed(() => formatDate(props.submission.reviewed_
 .drive-path {
   font-family: monospace;
   font-size: 0.8rem;
-  color: #10b981;
-  background: rgba(16, 185, 129, 0.08);
+  color: var(--c-success-text);
+  background: rgba(213, 237, 171, 0.4);
   padding: 0.25rem 0.6rem;
   border-radius: 6px;
   display: inline-block;
@@ -385,21 +385,22 @@ const formattedReviewedAt = computed(() => formatDate(props.submission.reviewed_
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-  color: white;
+  background: var(--c-success);
+  color: var(--c-success-text);
   text-decoration: none;
   font-size: 0.825rem;
   font-weight: 600;
   padding: 0.6rem 1.2rem;
   border-radius: 8px;
+  border: 1px solid rgba(58, 98, 0, 0.25);
   transition: all 0.2s ease;
   width: fit-content;
-  box-shadow: 0 4px 10px rgba(16, 185, 129, 0.2);
+  box-shadow: 0 4px 10px rgba(58, 98, 0, 0.1);
 }
 
 .btn-drive-link:hover {
   transform: translateY(-1px);
-  box-shadow: 0 6px 14px rgba(16, 185, 129, 0.3);
+  background: #c8e89a;
 }
 
 .drive-icon {

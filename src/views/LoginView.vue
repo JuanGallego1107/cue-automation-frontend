@@ -3,11 +3,9 @@
     <div class="login-card">
       <div class="login-header">
         <div class="logo">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-          </svg>
+          <img src="/owlsight-logo.svg" alt="Owlsight" class="logo-img" />
         </div>
-        <h1>CUE Automation</h1>
+        <h1>Owlsight</h1>
         <p>Inicia sesión para continuar</p>
       </div>
 
@@ -111,19 +109,18 @@ async function handleLogin() {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  background: linear-gradient(135deg, #11559C 0%, #0d4080 100%);
   padding: 1rem;
 }
 
 .login-card {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #ffffff;
+  border: 1px solid var(--c-border);
   border-radius: 24px;
   padding: 3rem 2.5rem;
   width: 100%;
   max-width: 420px;
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
 }
 
 .login-header {
@@ -132,36 +129,31 @@ async function handleLogin() {
 }
 
 .logo {
-  width: 64px;
-  height: 64px;
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  border-radius: 16px;
+  width: 88px;
+  height: 88px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 1.25rem;
-  box-shadow: 0 8px 24px rgba(102, 126, 234, 0.4);
+  margin: 0 auto 1rem;
 }
 
-.logo svg {
-  width: 32px;
-  height: 32px;
-  color: white;
-  stroke: white;
-  fill: none;
-  stroke-width: 2;
+.logo-img {
+  width: 88px;
+  height: 88px;
+  object-fit: contain;
+  display: block;
 }
 
 .login-header h1 {
   font-size: 1.75rem;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--c-text);
   margin-bottom: 0.5rem;
   letter-spacing: -0.5px;
 }
 
 .login-header p {
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--c-text-muted);
   font-size: 0.9rem;
 }
 
@@ -180,7 +172,7 @@ async function handleLogin() {
 .form-group label {
   font-size: 0.85rem;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--c-text);
 }
 
 .input-wrapper {
@@ -196,17 +188,17 @@ async function handleLogin() {
   transform: translateY(-50%);
   width: 18px;
   height: 18px;
-  color: rgba(255, 255, 255, 0.3);
+  color: var(--c-text-muted);
   pointer-events: none;
 }
 
 .input-wrapper input {
   width: 100%;
-  background: rgba(255, 255, 255, 0.07);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #f8fafc;
+  border: 1px solid var(--c-border);
   border-radius: 12px;
   padding: 0.875rem 2.75rem 0.875rem 2.75rem;
-  color: #ffffff;
+  color: var(--c-text);
   font-size: 0.95rem;
   transition: all 0.2s ease;
   outline: none;
@@ -214,17 +206,17 @@ async function handleLogin() {
 }
 
 .input-wrapper input::placeholder {
-  color: rgba(255, 255, 255, 0.25);
+  color: #94a3b8;
 }
 
 .input-wrapper input:focus {
-  border-color: #667eea;
-  background: rgba(102, 126, 234, 0.1);
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+  border-color: var(--c-primary);
+  background: #ffffff;
+  box-shadow: 0 0 0 3px var(--c-primary-pale);
 }
 
 .has-error .input-wrapper input {
-  border-color: #f87171;
+  border-color: var(--c-danger);
 }
 
 .toggle-password {
@@ -235,7 +227,7 @@ async function handleLogin() {
   background: none;
   border: none;
   cursor: pointer;
-  color: rgba(255, 255, 255, 0.3);
+  color: var(--c-text-muted);
   padding: 0;
   display: flex;
   align-items: center;
@@ -243,23 +235,23 @@ async function handleLogin() {
   z-index: 2;
 }
 
-.toggle-password:hover { color: rgba(255, 255, 255, 0.7); }
+.toggle-password:hover { color: var(--c-text); }
 .toggle-password svg { width: 18px; height: 18px; }
 
 .error-msg {
   font-size: 0.8rem;
-  color: #f87171;
+  color: var(--c-danger);
 }
 
 .alert-error {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  background: rgba(248, 113, 113, 0.1);
-  border: 1px solid rgba(248, 113, 113, 0.3);
+  background: var(--c-danger-pale);
+  border: 1px solid rgba(207, 99, 107, 0.3);
   border-radius: 10px;
   padding: 0.75rem 1rem;
-  color: #f87171;
+  color: var(--c-danger);
   font-size: 0.875rem;
 }
 
@@ -267,7 +259,7 @@ async function handleLogin() {
 
 .btn-login {
   margin-top: 0.5rem;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: var(--c-primary);
   color: white;
   border: none;
   border-radius: 12px;
@@ -280,12 +272,13 @@ async function handleLogin() {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 4px 15px rgba(17, 85, 156, 0.3);
 }
 
 .btn-login:hover:not(:disabled) {
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+  background: #0e4a88;
+  box-shadow: 0 6px 20px rgba(17, 85, 156, 0.4);
 }
 
 .btn-login:active:not(:disabled) { transform: translateY(0); }
@@ -294,7 +287,7 @@ async function handleLogin() {
 .spinner {
   width: 20px;
   height: 20px;
-  border: 2px solid rgba(255,255,255,0.3);
+  border: 2px solid rgba(255,255,255,0.4);
   border-top-color: white;
   border-radius: 50%;
   animation: spin 0.7s linear infinite;

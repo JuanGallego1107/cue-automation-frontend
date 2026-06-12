@@ -13,20 +13,21 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-  color: white;
+  background: var(--c-bg);
+  color: var(--c-text);
   gap: 1rem;
 }
 
-.not-found h1 { font-size: 6rem; font-weight: 900; opacity: 0.2; margin: 0; }
-.not-found p { font-size: 1.25rem; opacity: 0.6; }
+.not-found h1 { font-size: 6rem; font-weight: 900; color: var(--c-primary); opacity: 0.25; margin: 0; }
+.not-found p { font-size: 1.25rem; color: var(--c-text-muted); }
 .not-found a {
-  color: #667eea;
+  color: var(--c-primary);
   text-decoration: none;
-  border: 1px solid #667eea;
+  border: 1px solid var(--c-primary);
   padding: 0.6rem 1.5rem;
   border-radius: 10px;
   transition: all 0.2s;
+  font-weight: 600;
 }
-.not-found a:hover { background: rgba(102,126,234,0.15); }
+.not-found a:hover { background: var(--c-primary-pale); }
 </style>

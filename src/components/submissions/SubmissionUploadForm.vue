@@ -441,22 +441,22 @@ function triggerToast(message) {
 
 .form-group label {
   font-size: 0.825rem;
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--c-text);
   font-weight: 500;
 }
 
 .optional-text {
   font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.3);
+  color: var(--c-text-muted);
   font-weight: 400;
 }
 
 .form-group select {
-  background: rgba(255, 255, 255, 0.07);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #f8fafc;
+  border: 1px solid var(--c-border);
   border-radius: 10px;
   padding: 0.75rem 0.9rem;
-  color: white;
+  color: var(--c-text);
   font-size: 0.9rem;
   outline: none;
   transition: border-color 0.2s, box-shadow 0.2s;
@@ -464,18 +464,19 @@ function triggerToast(message) {
 }
 
 .form-group select:focus {
-  border-color: #667eea;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.15);
+  border-color: var(--c-primary);
+  box-shadow: 0 0 0 3px var(--c-primary-pale);
 }
 
 .form-group select option {
-  background: #1a1535;
+  background: #ffffff;
+  color: var(--c-text);
 }
 
 /* Drag & Drop Zone */
 .drag-drop-zone {
-  border: 2px dashed rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.02);
+  border: 2px dashed var(--c-border);
+  background: #f8fafc;
   border-radius: 16px;
   padding: 2rem 1.5rem;
   text-align: center;
@@ -489,26 +490,26 @@ function triggerToast(message) {
 }
 
 .drag-drop-zone:hover {
-  border-color: rgba(102, 126, 234, 0.5);
-  background: rgba(102, 126, 234, 0.02);
+  border-color: var(--c-primary-mid);
+  background: var(--c-primary-pale);
 }
 
 .drag-drop-zone.drag-over {
-  border-color: #667eea;
-  background: rgba(102, 126, 234, 0.06);
+  border-color: var(--c-primary);
+  background: var(--c-primary-pale);
   transform: scale(1.01);
 }
 
 .drag-drop-zone.has-file {
   border-style: solid;
-  border-color: rgba(102, 126, 234, 0.3);
-  background: rgba(102, 126, 234, 0.02);
+  border-color: var(--c-primary-mid);
+  background: var(--c-primary-pale);
   cursor: default;
 }
 
 .drag-drop-zone.has-error {
-  border-color: rgba(244, 63, 94, 0.4);
-  background: rgba(244, 63, 94, 0.02);
+  border-color: rgba(207, 99, 107, 0.4);
+  background: var(--c-danger-pale);
 }
 
 .hidden-file-input {
@@ -525,24 +526,24 @@ function triggerToast(message) {
 .upload-icon {
   width: 32px;
   height: 32px;
-  color: rgba(255, 255, 255, 0.35);
+  color: var(--c-text-muted);
   margin-bottom: 0.2rem;
 }
 
 .drag-drop-zone:hover .upload-icon {
-  color: #a78bfa;
+  color: var(--c-primary);
 }
 
 .primary-text {
   font-size: 0.875rem;
   font-weight: 500;
-  color: white;
+  color: var(--c-text);
   margin: 0;
 }
 
 .secondary-text {
   font-size: 0.775rem;
-  color: rgba(255, 255, 255, 0.35);
+  color: var(--c-text-muted);
   margin: 0;
 }
 
@@ -560,7 +561,7 @@ function triggerToast(message) {
   width: 48px;
   height: 48px;
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--c-primary-pale);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -573,11 +574,11 @@ function triggerToast(message) {
 }
 
 .file-icon.pdf {
-  color: #f87171;
+  color: var(--c-danger);
 }
 
 .file-icon.doc {
-  color: #60a5fa;
+  color: var(--c-primary);
 }
 
 .file-details {
@@ -591,7 +592,7 @@ function triggerToast(message) {
 .file-details .filename {
   font-size: 0.875rem;
   font-weight: 600;
-  color: white;
+  color: var(--c-text);
   margin: 0;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -600,12 +601,12 @@ function triggerToast(message) {
 
 .file-details .filesize {
   font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--c-text-muted);
   margin: 0;
 }
 
 .btn-remove-file {
-  background: rgba(248, 113, 113, 0.1);
+  background: var(--c-danger-pale);
   border: none;
   border-radius: 50%;
   width: 28px;
@@ -614,13 +615,13 @@ function triggerToast(message) {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  color: #f87171;
+  color: var(--c-danger);
   transition: all 0.2s;
   flex-shrink: 0;
 }
 
 .btn-remove-file:hover {
-  background: rgba(248, 113, 113, 0.22);
+  background: rgba(207, 99, 107, 0.2);
   transform: scale(1.05);
 }
 
@@ -631,7 +632,7 @@ function triggerToast(message) {
 
 .field-error {
   font-size: 0.78rem;
-  color: #f87171;
+  color: var(--c-danger);
   margin-top: 0.1rem;
 }
 
@@ -647,13 +648,13 @@ function triggerToast(message) {
   display: flex;
   justify-content: space-between;
   font-size: 0.775rem;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--c-text-muted);
   font-weight: 500;
 }
 
 .progress-track {
   height: 6px;
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--c-border);
   border-radius: 4px;
   overflow: hidden;
   position: relative;
@@ -661,7 +662,7 @@ function triggerToast(message) {
 
 .progress-fill {
   height: 100%;
-  background: linear-gradient(90deg, #667eea, #764ba2);
+  background: var(--c-primary);
   border-radius: 4px;
   transition: width 0.1s ease;
 }
@@ -677,11 +678,11 @@ function triggerToast(message) {
 
 /* Blocking Error Alert */
 .blocking-error-alert {
-  background: rgba(248, 113, 113, 0.08);
-  border: 1px solid rgba(248, 113, 113, 0.25);
+  background: var(--c-danger-pale);
+  border: 1px solid rgba(207, 99, 107, 0.25);
   border-radius: 16px;
   padding: 1.25rem 1.5rem;
-  color: #f87171;
+  color: var(--c-danger);
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
@@ -709,7 +710,7 @@ function triggerToast(message) {
   margin: 0;
   font-size: 0.85rem;
   line-height: 1.5;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--c-text-muted);
 }
 
 /* Toast Animation & Styling */
@@ -717,12 +718,12 @@ function triggerToast(message) {
   position: fixed;
   top: 1.5rem;
   right: 1.5rem;
-  background: #1e1b3a;
-  border: 1px solid rgba(248, 113, 113, 0.4);
+  background: var(--c-surface);
+  border: 1px solid rgba(207, 99, 107, 0.4);
   border-radius: 12px;
   padding: 0.85rem 1.25rem;
-  color: #f87171;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  color: var(--c-danger);
+  box-shadow: 0 10px 30px rgba(17, 85, 156, 0.15);
   z-index: 2000;
   display: flex;
   align-items: center;

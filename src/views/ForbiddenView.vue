@@ -30,7 +30,7 @@
 <style scoped>
 .forbidden-page {
   min-height: 100vh;
-  background: #0d0b1e;
+  background: var(--c-bg);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -39,15 +39,14 @@
 }
 
 .glass-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
   border-radius: 24px;
   padding: 3rem 2rem;
   max-width: 480px;
   width: 100%;
   text-align: center;
-  backdrop-filter: blur(16px);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 20px 50px rgba(17, 85, 156, 0.1);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -56,15 +55,14 @@
 .icon-container {
   width: 72px;
   height: 72px;
-  background: rgba(239, 68, 68, 0.1);
-  border: 1px solid rgba(239, 68, 68, 0.25);
+  background: var(--c-danger-pale);
+  border: 1px solid rgba(207, 99, 107, 0.25);
   border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #f87171;
+  color: var(--c-danger);
   margin-bottom: 1.5rem;
-  box-shadow: 0 0 20px rgba(239, 68, 68, 0.15);
 }
 
 .icon-container svg {
@@ -75,24 +73,21 @@
 h1 {
   font-size: 4rem;
   font-weight: 900;
-  color: white;
   margin: 0;
   line-height: 1;
-  background: linear-gradient(135deg, #f87171, #f43f5e);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--c-danger);
 }
 
 h2 {
   font-size: 1.35rem;
   font-weight: 700;
-  color: white;
+  color: var(--c-text);
   margin: 0.5rem 0 1rem;
 }
 
 p {
   font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.45);
+  color: var(--c-text-muted);
   line-height: 1.6;
   margin: 0 0 2rem 0;
 }
@@ -101,8 +96,8 @@ p {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--c-primary);
+  border: none;
   border-radius: 12px;
   color: white;
   padding: 0.75rem 1.5rem;
@@ -113,8 +108,7 @@ p {
 }
 
 .btn-back:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.2);
+  background: #0e4a88;
   transform: translateY(-1px);
 }
 

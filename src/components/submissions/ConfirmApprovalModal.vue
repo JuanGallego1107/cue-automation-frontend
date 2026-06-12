@@ -134,9 +134,9 @@ async function handleConfirm() {
 .info-badge {
   width: 52px;
   height: 52px;
-  background: rgba(16, 185, 129, 0.12);
-  border: 1px solid rgba(16, 185, 129, 0.25);
-  color: #10b981;
+  background: rgba(213, 237, 171, 0.4);
+  border: 1px solid rgba(58, 98, 0, 0.2);
+  color: var(--c-success-text);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -151,8 +151,8 @@ async function handleConfirm() {
 
 .document-summary-card {
   width: 100%;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: #f8fafc;
+  border: 1px solid var(--c-border);
   border-radius: 12px;
   padding: 0.85rem 1.15rem;
   display: flex;
@@ -169,14 +169,14 @@ async function handleConfirm() {
 }
 
 .summary-row .label {
-  color: rgba(255, 255, 255, 0.35);
+  color: var(--c-text-muted);
   font-weight: 500;
   width: 60px;
   flex-shrink: 0;
 }
 
 .summary-row .val {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--c-text);
   font-weight: 600;
 }
 
@@ -190,7 +190,7 @@ async function handleConfirm() {
 .explanatory-text {
   font-size: 0.85rem;
   line-height: 1.55;
-  color: rgba(255, 255, 255, 0.65);
+  color: var(--c-text-muted);
   margin: 0;
 }
 
@@ -199,9 +199,9 @@ async function handleConfirm() {
   display: flex;
   align-items: flex-start;
   gap: 0.5rem;
-  background: rgba(239, 68, 68, 0.1);
-  border: 1px solid rgba(239, 68, 68, 0.25);
-  color: #f87171;
+  background: var(--c-danger-pale);
+  border: 1px solid rgba(207, 99, 107, 0.25);
+  color: var(--c-danger);
   padding: 0.7rem 1rem;
   border-radius: 10px;
   font-size: 0.825rem;
@@ -218,16 +218,16 @@ async function handleConfirm() {
 
 /* Success primary button modification */
 .btn-success-action {
-  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-  color: white;
-  border: none;
+  background: var(--c-success);
+  color: var(--c-success-text);
+  border: 1px solid rgba(58, 98, 0, 0.25);
   border-radius: 10px;
   padding: 0.65rem 1.25rem;
   font-size: 0.875rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s;
-  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
+  box-shadow: 0 4px 12px rgba(58, 98, 0, 0.15);
   display: flex;
   align-items: center;
   gap: 0.4rem;
@@ -235,7 +235,8 @@ async function handleConfirm() {
 
 .btn-success-action:hover:not(:disabled) {
   transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(16, 185, 129, 0.35);
+  background: #c8e89a;
+  box-shadow: 0 6px 16px rgba(58, 98, 0, 0.2);
 }
 
 .btn-success-action:disabled {
@@ -247,8 +248,8 @@ async function handleConfirm() {
   display: inline-block;
   width: 14px;
   height: 14px;
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  border-top-color: white;
+  border: 2px solid rgba(58, 98, 0, 0.3);
+  border-top-color: var(--c-success-text);
   border-radius: 50%;
   animation: spin 0.7s linear infinite;
 }

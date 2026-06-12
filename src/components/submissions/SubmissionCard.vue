@@ -122,8 +122,8 @@ function emitClick() {
 
 <style scoped>
 .submission-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
   border-radius: 16px;
   padding: 1.25rem;
   cursor: pointer;
@@ -136,14 +136,13 @@ function emitClick() {
 
 .submission-card:hover {
   transform: translateY(-2px);
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(102, 126, 234, 0.3);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  border-color: var(--c-primary-mid);
+  box-shadow: 0 8px 24px rgba(17, 85, 156, 0.1);
 }
 
 .submission-card:focus-visible {
-  border-color: #667eea;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.25);
+  border-color: var(--c-primary);
+  box-shadow: 0 0 0 3px var(--c-primary-pale);
 }
 
 /* Header */
@@ -164,14 +163,14 @@ function emitClick() {
 .doc-icon {
   width: 18px;
   height: 18px;
-  color: rgba(255, 255, 255, 0.55);
+  color: var(--c-text-muted);
   flex-shrink: 0;
 }
 
 .filename {
   font-size: 0.925rem;
   font-weight: 600;
-  color: white;
+  color: var(--c-text);
   margin: 0;
   white-space: nowrap;
   overflow: hidden;
@@ -194,25 +193,25 @@ function emitClick() {
 }
 
 .meta-label {
-  color: rgba(255, 255, 255, 0.35);
+  color: var(--c-text-muted);
   font-weight: 500;
 }
 
 .meta-val {
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--c-text);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
 .coordinator-row {
-  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  border-top: 1px solid var(--c-border);
   padding-top: 0.4rem;
   margin-top: 0.2rem;
 }
 
 .highlight-user {
-  color: #a78bfa;
+  color: var(--c-primary);
   font-weight: 500;
 }
 
@@ -221,35 +220,35 @@ function emitClick() {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: 1px solid var(--c-border);
   padding-top: 0.75rem;
   font-size: 0.75rem;
 }
 
 .date {
-  color: rgba(255, 255, 255, 0.35);
+  color: var(--c-text-muted);
 }
 
 .action-hint {
-  color: rgba(102, 126, 234, 0.8);
+  color: var(--c-primary);
   font-weight: 600;
   transition: color 0.15s;
 }
 
 .submission-card:hover .action-hint {
-  color: #a78bfa;
+  color: #0e4a88;
 }
 
 /* Custom Status Highlights */
 .submission-card.status-processing {
-  border-color: rgba(59, 130, 246, 0.25);
-  background: rgba(59, 130, 246, 0.02);
+  border-color: var(--c-primary-mid);
+  background: var(--c-primary-pale);
 }
 
 .submission-card.status-pending-approval {
-  border-color: rgba(167, 139, 250, 0.35);
-  background: rgba(167, 139, 250, 0.04);
-  box-shadow: 0 4px 15px rgba(167, 139, 250, 0.08);
+  border-color: rgba(17, 85, 156, 0.25);
+  background: var(--c-primary-pale);
+  box-shadow: 0 4px 15px rgba(17, 85, 156, 0.08);
 }
 
 /* Pulse animation details */
@@ -264,7 +263,7 @@ function emitClick() {
   position: absolute;
   width: 10px;
   height: 10px;
-  background: #3b82f6;
+  background: var(--c-primary);
   border-radius: 50%;
 }
 
@@ -272,20 +271,14 @@ function emitClick() {
   position: absolute;
   width: 10px;
   height: 10px;
-  background: #3b82f6;
+  background: var(--c-primary);
   border-radius: 50%;
   animation: pulse 1.5s ease-out infinite;
 }
 
 @keyframes pulse {
-  0% {
-    transform: scale(1);
-    opacity: 0.8;
-  }
-  100% {
-    transform: scale(2.8);
-    opacity: 0;
-  }
+  0%  { transform: scale(1);   opacity: 0.8; }
+  100%{ transform: scale(2.8); opacity: 0;   }
 }
 
 .card-actions {
@@ -297,21 +290,22 @@ function emitClick() {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-  color: white;
-  border: none;
+  background: var(--c-success);
+  color: var(--c-success-text);
+  border: 1px solid rgba(58, 98, 0, 0.25);
   border-radius: 8px;
   padding: 0.4rem 0.85rem;
   font-size: 0.75rem;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
   transition: all 0.2s;
-  box-shadow: 0 4px 10px rgba(16, 185, 129, 0.2);
+  box-shadow: 0 2px 8px rgba(58, 98, 0, 0.15);
 }
 
 .btn-confirm-sm:hover {
   transform: translateY(-1px);
-  box-shadow: 0 6px 14px rgba(16, 185, 129, 0.3);
+  background: #c8e89a;
+  box-shadow: 0 4px 12px rgba(58, 98, 0, 0.2);
 }
 
 .sm-icon {
