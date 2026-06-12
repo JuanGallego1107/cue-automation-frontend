@@ -10,12 +10,31 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* Paleta CUE */
+  --c-bg:           #EEF2F8;
+  --c-surface:      #FFFFFF;
+  --c-primary:      #11559C;
+  --c-primary-pale: rgba(17, 85, 156, 0.08);
+  --c-primary-mid:  rgba(17, 85, 156, 0.16);
+  --c-danger:       #CF636B;
+  --c-danger-pale:  rgba(207, 99, 107, 0.1);
+  --c-warning:      #FFCC9E;
+  --c-warning-text: #7A4200;
+  --c-success:      #D5EDAB;
+  --c-success-text: #3A6200;
+  --c-text:         #1a2744;
+  --c-text-muted:   #5a6a8a;
+  --c-text-faint:   rgba(26, 39, 68, 0.35);
+  --c-border:       #e2e8f0;
 }
 
 body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
+  background: var(--c-bg);
+  color: var(--c-text);
 }
 
 #app {

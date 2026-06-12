@@ -5,11 +5,9 @@
       <div class="sidebar-header">
         <div class="brand">
           <div class="brand-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-            </svg>
+            <img src="/owlsight-logo.svg" alt="Owlsight" class="brand-logo" />
           </div>
-          <span class="brand-name">CUE Auto</span>
+          <span class="brand-name">Owlsight</span>
         </div>
         <button class="collapse-btn" @click="sidebarCollapsed = !sidebarCollapsed">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -159,15 +157,15 @@ onMounted(() => {
 .app-layout {
   display: flex;
   min-height: 100vh;
-  background: #0d0b1e;
+  background: var(--c-bg);
 }
 
 /* ── Sidebar ────────────────────────────────── */
 .sidebar {
   width: 240px;
   min-height: 100vh;
-  background: linear-gradient(180deg, #1a1535 0%, #12102a 100%);
-  border-right: 1px solid rgba(255, 255, 255, 0.06);
+  background: linear-gradient(180deg, #11559C 0%, #0d4080 100%);
+  border-right: 1px solid rgba(0, 0, 0, 0.08);
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
@@ -216,7 +214,7 @@ onMounted(() => {
   align-items: center;
   justify-content: space-between;
   padding: 1.25rem 1rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .brand {
@@ -226,20 +224,23 @@ onMounted(() => {
 }
 
 .brand-icon {
-  width: 36px;
-  height: 36px;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  width: 38px;
+  height: 38px;
+  background: #ffffff;
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
 }
 
-.brand-icon svg {
-  width: 18px;
-  height: 18px;
-  color: white;
+.brand-logo {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  display: block;
 }
 
 .brand-name {
@@ -250,7 +251,7 @@ onMounted(() => {
 }
 
 .collapse-btn {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.1);
   border: none;
   border-radius: 8px;
   width: 30px;
@@ -259,12 +260,12 @@ onMounted(() => {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  color: rgba(255, 255, 255, 0.4);
+  color: #ffffff;
   flex-shrink: 0;
   transition: all 0.15s;
 }
 
-.collapse-btn:hover { color: white; background: rgba(255, 255, 255, 0.1); }
+.collapse-btn:hover { color: white; background: rgba(255, 255, 255, 0.18); }
 .collapse-btn svg { width: 16px; height: 16px; }
 
 /* Nav */
@@ -281,7 +282,7 @@ onMounted(() => {
   font-size: 0.65rem;
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  color: rgba(255, 255, 255, 0.25);
+  color: rgba(255, 255, 255, 0.5);
   padding: 0.75rem 0.5rem 0.25rem;
   white-space: nowrap;
 }
@@ -292,7 +293,7 @@ onMounted(() => {
   gap: 0.75rem;
   padding: 0.6rem 0.75rem;
   border-radius: 10px;
-  color: rgba(255, 255, 255, 0.55);
+  color: rgba(255, 255, 255, 0.75);
   text-decoration: none;
   font-size: 0.875rem;
   font-weight: 500;
@@ -307,19 +308,19 @@ onMounted(() => {
 }
 
 .nav-item:hover {
-  background: rgba(255, 255, 255, 0.07);
-  color: rgba(255, 255, 255, 0.9);
+  background: #0e4a88;
+  color: #ffffff;
 }
 
 .nav-item.active {
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(118, 75, 162, 0.2));
-  color: #a78bfa;
-  border: 1px solid rgba(102, 126, 234, 0.25);
+  background: #1466B8;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
 .nav-badge {
-  background: #f59e0b;
-  color: #12102a;
+  background: #FFCC9E;
+  color: #7A4200;
   font-size: 0.7rem;
   font-weight: 800;
   padding: 0.15rem 0.45rem;
@@ -331,7 +332,7 @@ onMounted(() => {
 /* Footer */
 .sidebar-footer {
   padding: 0.75rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -348,7 +349,7 @@ onMounted(() => {
 .user-avatar {
   width: 34px;
   height: 34px;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: rgba(255, 255, 255, 0.2);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -376,14 +377,14 @@ onMounted(() => {
 
 .user-role {
   font-size: 0.7rem;
-  color: rgba(255, 255, 255, 0.35);
+  color: rgba(255, 255, 255, 0.65);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 .logout-btn {
-  background: rgba(248, 113, 113, 0.1);
+  background: rgba(207, 99, 107, 0.2);
   border: none;
   border-radius: 8px;
   width: 32px;
@@ -392,12 +393,12 @@ onMounted(() => {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  color: #f87171;
+  color: #FFAAAD;
   flex-shrink: 0;
   transition: all 0.15s;
 }
 
-.logout-btn:hover { background: rgba(248, 113, 113, 0.2); }
+.logout-btn:hover { background: rgba(207, 99, 107, 0.35); }
 .logout-btn svg { width: 15px; height: 15px; }
 
 /* ── Main content ───────────────────────────── */

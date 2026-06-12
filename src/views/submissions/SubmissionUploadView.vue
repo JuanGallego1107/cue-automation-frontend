@@ -157,7 +157,7 @@ function handleUploadSuccess(newSubmission) {
   gap: 0.5rem;
   background: transparent;
   border: none;
-  color: rgba(255, 255, 255, 0.45);
+  color: var(--c-text-muted);
   font-size: 0.85rem;
   font-weight: 600;
   text-decoration: none;
@@ -167,7 +167,7 @@ function handleUploadSuccess(newSubmission) {
 }
 
 .btn-back:hover {
-  color: white;
+  color: var(--c-primary);
 }
 
 .back-icon {
@@ -182,12 +182,12 @@ function handleUploadSuccess(newSubmission) {
 .view-header h1 {
   font-size: 1.75rem;
   font-weight: 800;
-  color: white;
+  color: var(--c-text);
   margin-bottom: 0.25rem;
 }
 
 .view-subtitle {
-  color: rgba(255, 255, 255, 0.45);
+  color: var(--c-text-muted);
   font-size: 0.9rem;
   margin: 0;
 }
@@ -202,13 +202,13 @@ function handleUploadSuccess(newSubmission) {
   align-items: center;
   justify-content: center;
   padding: 4rem;
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--c-text-muted);
   gap: 1rem;
 }
 
 .form-container-box {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
   border-radius: 20px;
   padding: 2rem;
 }
@@ -221,8 +221,8 @@ function handleUploadSuccess(newSubmission) {
 
 /* Alerta Bloqueante */
 .blocking-alert-container {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(245, 158, 11, 0.2);
+  background: var(--c-surface);
+  border: 1px solid rgba(255, 204, 158, 0.4);
   border-radius: 20px;
   padding: 2.5rem 2rem;
   text-align: center;
@@ -234,9 +234,9 @@ function handleUploadSuccess(newSubmission) {
 .alert-circle-icon {
   width: 56px;
   height: 56px;
-  background: rgba(245, 158, 11, 0.1);
-  border: 1px solid rgba(245, 158, 11, 0.25);
-  color: #f59e0b;
+  background: rgba(255, 204, 158, 0.3);
+  border: 1px solid rgba(122, 66, 0, 0.2);
+  color: var(--c-warning-text);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -252,28 +252,28 @@ function handleUploadSuccess(newSubmission) {
 .blocking-alert-container h3 {
   font-size: 1.2rem;
   font-weight: 700;
-  color: white;
+  color: var(--c-text);
   margin-bottom: 0.75rem;
 }
 
 .alert-message {
   font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--c-text-muted);
   max-width: 440px;
   line-height: 1.6;
   margin: 0 0 2rem 0;
 }
 
 .alert-message strong {
-  color: #f59e0b;
+  color: var(--c-warning-text);
 }
 
 /* Ficha del Envío Activo */
 .active-file-card {
   width: 100%;
   max-width: 460px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  background: #f8fafc;
+  border: 1px solid var(--c-border);
   border-radius: 14px;
   padding: 1rem 1.25rem;
   display: flex;
@@ -301,7 +301,7 @@ function handleUploadSuccess(newSubmission) {
 .file-icon {
   width: 24px;
   height: 24px;
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--c-text-muted);
   flex-shrink: 0;
 }
 
@@ -315,7 +315,7 @@ function handleUploadSuccess(newSubmission) {
 .file-details .filename {
   font-size: 0.875rem;
   font-weight: 600;
-  color: white;
+  color: var(--c-text);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -324,19 +324,19 @@ function handleUploadSuccess(newSubmission) {
 .status-badge-inline {
   font-size: 0.725rem;
   font-weight: 600;
-  color: #f59e0b;
-  background: rgba(245, 158, 11, 0.1);
+  color: var(--c-warning-text);
+  background: rgba(255, 204, 158, 0.35);
   padding: 0.1rem 0.45rem;
   border-radius: 4px;
   width: fit-content;
-  border: 1px solid rgba(245, 158, 11, 0.15);
+  border: 1px solid rgba(122, 66, 0, 0.15);
 }
 
 .btn-primary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--c-primary);
   color: white;
   border: none;
   border-radius: 8px;
@@ -347,12 +347,12 @@ function handleUploadSuccess(newSubmission) {
   transition: all 0.2s;
   text-decoration: none;
   white-space: nowrap;
-  box-shadow: 0 4px 10px rgba(102, 126, 234, 0.25);
+  box-shadow: 0 4px 10px rgba(17, 85, 156, 0.2);
 }
 
 .btn-primary:hover {
   transform: translateY(-1px);
-  box-shadow: 0 6px 14px rgba(102, 126, 234, 0.35);
+  background: #0e4a88;
 }
 
 .btn-sm {
@@ -364,8 +364,8 @@ function handleUploadSuccess(newSubmission) {
 .spinner-lg {
   width: 36px;
   height: 36px;
-  border: 3px solid rgba(255, 255, 255, 0.1);
-  border-top-color: #667eea;
+  border: 3px solid var(--c-border);
+  border-top-color: var(--c-primary);
   border-radius: 50%;
   animation: spin 0.7s linear infinite;
 }

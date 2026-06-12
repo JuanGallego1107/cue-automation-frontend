@@ -53,11 +53,11 @@ defineEmits(['update:modelValue'])
 }
 
 .modal-panel {
-  background: #1e1b3a;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
   border-radius: 20px;
   width: 100%;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 25px 60px rgba(17, 85, 156, 0.15);
   overflow: hidden;
 }
 
@@ -66,17 +66,17 @@ defineEmits(['update:modelValue'])
   align-items: center;
   justify-content: space-between;
   padding: 1.5rem 1.75rem 1rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid var(--c-border);
 }
 
 .modal-title {
   font-size: 1.1rem;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--c-text);
 }
 
 .modal-close {
-  background: rgba(255, 255, 255, 0.07);
+  background: #f1f5f9;
   border: none;
   border-radius: 8px;
   width: 32px;
@@ -85,13 +85,13 @@ defineEmits(['update:modelValue'])
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--c-text-muted);
   transition: all 0.15s;
 }
 
 .modal-close:hover {
-  background: rgba(255, 255, 255, 0.12);
-  color: white;
+  background: var(--c-border);
+  color: var(--c-text);
 }
 
 .modal-close svg { width: 16px; height: 16px; }
@@ -105,7 +105,7 @@ defineEmits(['update:modelValue'])
   display: flex;
   justify-content: flex-end;
   gap: 0.75rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid var(--c-border);
 }
 
 /* Transition */

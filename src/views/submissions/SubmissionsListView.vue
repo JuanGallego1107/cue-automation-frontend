@@ -236,12 +236,12 @@ onMounted(async () => {
 .page-header h1 {
   font-size: 1.75rem;
   font-weight: 800;
-  color: white;
+  color: var(--c-text);
   margin-bottom: 0.25rem;
 }
 
 .page-subtitle {
-  color: rgba(255, 255, 255, 0.45);
+  color: var(--c-text-muted);
   font-size: 0.9rem;
   margin: 0;
 }
@@ -255,9 +255,9 @@ onMounted(async () => {
 .btn-primary.disabled {
   opacity: 0.5;
   cursor: not-allowed;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.4);
+  background: var(--c-border);
+  border: 1px solid var(--c-border);
+  color: var(--c-text-muted);
   box-shadow: none;
 }
 
@@ -268,21 +268,21 @@ onMounted(async () => {
 .tooltip-text {
   visibility: hidden;
   width: 260px;
-  background-color: #1e1b3a;
+  background-color: var(--c-text);
   color: white;
   text-align: center;
   border-radius: 8px;
   padding: 0.6rem 0.8rem;
   position: absolute;
   z-index: 100;
-  bottom: 125%; /* Aparece encima */
+  bottom: 125%;
   right: 0;
   opacity: 0;
   transition: opacity 0.2s;
   font-size: 0.775rem;
   line-height: 1.4;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
   pointer-events: none;
 }
 
@@ -301,8 +301,8 @@ onMounted(async () => {
 
 /* Skeleton Loading indicator */
 .skeleton-card {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
   border-radius: 16px;
   padding: 1.25rem;
   min-height: 190px;
@@ -321,14 +321,14 @@ onMounted(async () => {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.04);
+  background: #e2e8f0;
   animation: pulse 1.5s ease-in-out infinite;
   flex-shrink: 0;
 }
 
 .skeleton-title {
   height: 14px;
-  background: rgba(255, 255, 255, 0.04);
+  background: #e2e8f0;
   border-radius: 4px;
   width: 60%;
   animation: pulse 1.5s ease-in-out infinite;
@@ -343,13 +343,13 @@ onMounted(async () => {
 
 .skeleton-line {
   height: 10px;
-  background: rgba(255, 255, 255, 0.04);
+  background: #e2e8f0;
   border-radius: 3px;
   animation: pulse 1.5s ease-in-out infinite;
 }
 
 .skeleton-footer {
-  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  border-top: 1px solid var(--c-border);
   padding-top: 0.75rem;
 }
 
@@ -359,8 +359,8 @@ onMounted(async () => {
 .w-1\/3 { width: 33.333%; }
 
 @keyframes pulse {
-  0%, 100% { opacity: 0.45; }
-  50% { opacity: 0.85; }
+  0%, 100% { opacity: 0.5; }
+  50%       { opacity: 1;   }
 }
 
 /* Empty State */
@@ -371,8 +371,8 @@ onMounted(async () => {
   justify-content: center;
   text-align: center;
   padding: 5rem 2rem;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
   border-radius: 20px;
   min-height: 350px;
 }
@@ -380,13 +380,13 @@ onMounted(async () => {
 .empty-illustration {
   width: 64px;
   height: 64px;
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--c-primary-pale);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 1.5rem;
-  color: rgba(255, 255, 255, 0.2);
+  color: var(--c-primary);
 }
 
 .illustration-icon {
@@ -397,13 +397,13 @@ onMounted(async () => {
 .empty-text h3 {
   font-size: 1.15rem;
   font-weight: 700;
-  color: white;
+  color: var(--c-text);
   margin-bottom: 0.5rem;
 }
 
 .empty-text p {
   font-size: 0.875rem;
-  color: rgba(255, 255, 255, 0.45);
+  color: var(--c-text-muted);
   max-width: 420px;
   line-height: 1.5;
   margin: 0;
@@ -413,21 +413,21 @@ onMounted(async () => {
   margin-top: 1rem;
 }
 
-/* Paginación (Copiada de la convención de UsersView.vue) */
+/* Paginación */
 .pagination {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 1rem;
   padding: 1.5rem 1rem 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-top: 1px solid var(--c-border);
   margin-top: 1rem;
 }
 
 .page-btn {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.7);
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  color: var(--c-text-muted);
   padding: 0.45rem 1.15rem;
   border-radius: 8px;
   font-size: 0.825rem;
@@ -437,18 +437,19 @@ onMounted(async () => {
 }
 
 .page-btn:hover:not(:disabled) {
-  background: rgba(255, 255, 255, 0.12);
-  color: white;
+  background: var(--c-primary-pale);
+  border-color: var(--c-primary-mid);
+  color: var(--c-primary);
 }
 
 .page-btn:disabled {
-  opacity: 0.3;
+  opacity: 0.4;
   cursor: not-allowed;
 }
 
 .page-info {
   font-size: 0.825rem;
-  color: rgba(255, 255, 255, 0.35);
+  color: var(--c-text-muted);
 }
 
 .btn-icon {
@@ -460,7 +461,7 @@ onMounted(async () => {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--c-primary);
   color: white;
   border: none;
   border-radius: 10px;
@@ -470,18 +471,19 @@ onMounted(async () => {
   cursor: pointer;
   transition: all 0.2s;
   text-decoration: none;
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+  box-shadow: 0 4px 12px rgba(17, 85, 156, 0.25);
 }
 
 .btn-primary:hover:not(:disabled) {
   transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4);
+  background: #0e4a88;
+  box-shadow: 0 6px 16px rgba(17, 85, 156, 0.35);
 }
 
 .btn-ghost {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.7);
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  color: var(--c-text-muted);
   border-radius: 10px;
   padding: 0.6rem 1.25rem;
   font-size: 0.85rem;
@@ -491,7 +493,7 @@ onMounted(async () => {
 }
 
 .btn-ghost:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
+  background: var(--c-primary-pale);
+  color: var(--c-primary);
 }
 </style>

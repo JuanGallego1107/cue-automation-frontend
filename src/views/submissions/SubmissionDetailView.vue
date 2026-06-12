@@ -271,7 +271,7 @@ onUnmounted(() => {
   gap: 0.5rem;
   background: transparent;
   border: none;
-  color: rgba(255, 255, 255, 0.45);
+  color: var(--c-text-muted);
   font-size: 0.85rem;
   font-weight: 600;
   text-decoration: none;
@@ -281,7 +281,7 @@ onUnmounted(() => {
 }
 
 .btn-back:hover {
-  color: white;
+  color: var(--c-primary);
 }
 
 .back-icon {
@@ -295,7 +295,7 @@ onUnmounted(() => {
   align-items: center;
   justify-content: center;
   padding: 8rem 0;
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--c-text-muted);
   gap: 1rem;
 }
 
@@ -307,11 +307,11 @@ onUnmounted(() => {
 
 /* Banner de Procesamiento */
 .info-banner-processing {
-  background: rgba(59, 130, 246, 0.08);
-  border: 1px solid rgba(59, 130, 246, 0.25);
+  background: var(--c-primary-pale);
+  border: 1px solid var(--c-primary-mid);
   border-radius: 12px;
   padding: 0.85rem 1.25rem;
-  color: #60a5fa;
+  color: var(--c-primary);
   animation: pulse-banner 2s infinite ease-in-out;
 }
 
@@ -326,8 +326,8 @@ onUnmounted(() => {
 .spinner-sm-blue {
   width: 16px;
   height: 16px;
-  border: 2px solid rgba(96, 165, 250, 0.3);
-  border-top-color: #60a5fa;
+  border: 2px solid var(--c-primary-mid);
+  border-top-color: var(--c-primary);
   border-radius: 50%;
   animation: spin 0.7s linear infinite;
   flex-shrink: 0;
@@ -335,16 +335,16 @@ onUnmounted(() => {
 
 @keyframes pulse-banner {
   0%, 100% { opacity: 0.9; }
-  50% { opacity: 1; border-color: rgba(59, 130, 246, 0.4); }
+  50% { opacity: 1; border-color: var(--c-primary-mid); }
 }
 
 /* Banner de Fallo */
 .info-banner-failed {
-  background: rgba(239, 68, 68, 0.08);
-  border: 1px solid rgba(239, 68, 68, 0.25);
+  background: var(--c-danger-pale);
+  border: 1px solid rgba(207, 99, 107, 0.25);
   border-radius: 12px;
   padding: 1rem 1.25rem;
-  color: #f87171;
+  color: var(--c-danger);
 }
 
 .banner-icon {
@@ -361,14 +361,14 @@ onUnmounted(() => {
 }
 
 .support-link {
-  color: white;
+  color: var(--c-primary);
   text-decoration: underline;
   font-weight: 600;
   width: fit-content;
 }
 
 .support-link:hover {
-  color: #f87171;
+  color: #0e4a88;
 }
 
 /* Encabezado */
@@ -396,7 +396,7 @@ onUnmounted(() => {
 .header-title-group h1 {
   font-size: 1.5rem;
   font-weight: 800;
-  color: white;
+  color: var(--c-text);
   margin: 0;
   word-break: break-word;
   min-width: 0;
@@ -416,8 +416,6 @@ onUnmounted(() => {
   gap: 1.5rem;
 }
 
-
-
 /* Botones de acción */
 .btn-icon {
   width: 15px;
@@ -428,9 +426,9 @@ onUnmounted(() => {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: rgba(248, 113, 113, 0.12);
-  border: 1px solid rgba(248, 113, 113, 0.3);
-  color: #f87171;
+  background: var(--c-danger-pale);
+  border: 1px solid rgba(207, 99, 107, 0.3);
+  color: var(--c-danger);
   border-radius: 10px;
   padding: 0.7rem 1.5rem;
   font-size: 0.875rem;
@@ -440,36 +438,36 @@ onUnmounted(() => {
 }
 
 .btn-danger:hover {
-  background: rgba(248, 113, 113, 0.22);
+  background: rgba(207, 99, 107, 0.2);
 }
 
 .btn-success {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-  color: white;
-  border: none;
+  background: var(--c-success);
+  color: var(--c-success-text);
+  border: 1px solid rgba(58, 98, 0, 0.25);
   border-radius: 10px;
   padding: 0.7rem 1.5rem;
   font-size: 0.875rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s;
-  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
+  box-shadow: 0 4px 12px rgba(58, 98, 0, 0.15);
 }
 
 .btn-success:hover {
   transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(16, 185, 129, 0.35);
+  background: #c8e89a;
 }
 
 /* Spinners */
 .spinner-lg {
   width: 36px;
   height: 36px;
-  border: 3px solid rgba(255, 255, 255, 0.1);
-  border-top-color: #667eea;
+  border: 3px solid var(--c-border);
+  border-top-color: var(--c-primary);
   border-radius: 50%;
   animation: spin 0.7s linear infinite;
 }
