@@ -10,6 +10,7 @@ const DashboardView = () => import('@/views/DashboardView.vue')
 // ── Admin ──────────────────────────────────────────────────────────────────
 const UsersView   = () => import('@/views/admin/UsersView.vue')
 const RolesView   = () => import('@/views/admin/RolesView.vue')
+const SubjectsView = () => import('@/views/admin/SubjectsView.vue')
 
 // ── Submissions (Revisiones de documentos) ────────────────────────────────
 const SubmissionsListView = () => import('@/views/submissions/SubmissionsListView.vue')
@@ -71,6 +72,12 @@ const routes = [
     name: 'AdminRoles',
     component: RolesView,
     meta: { requiresAuth: true, requiresPermission: 'roles.manage' },
+  },
+  {
+    path: '/admin/subjects',
+    name: 'AdminSubjects',
+    component: SubjectsView,
+    meta: { requiresAuth: true, requiresPermission: 'subjects.view' },
   },
 
   // ── Errores ───────────────────────────────────────────────────────────────

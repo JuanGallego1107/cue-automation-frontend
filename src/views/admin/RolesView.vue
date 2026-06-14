@@ -167,6 +167,10 @@ const permissionMeta = {
   'users.update': { label: 'Actualizar Usuarios', group: 'Usuarios' },
   'users.delete': { label: 'Desactivar Usuarios', group: 'Usuarios' },
   'roles.manage': { label: 'Administrar Seguridad', group: 'Seguridad' },
+  'subjects.view': { label: 'Ver Asignaturas', group: 'Asignaturas' },
+  'subjects.create': { label: 'Crear Asignaturas', group: 'Asignaturas' },
+  'subjects.update': { label: 'Actualizar Asignaturas', group: 'Asignaturas' },
+  'subjects.delete': { label: 'Desactivar Asignaturas', group: 'Asignaturas' },
 }
 
 // ── Fetch ──────────────────────────────────────────────────────────────────
